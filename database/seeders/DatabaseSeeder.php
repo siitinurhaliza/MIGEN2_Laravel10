@@ -2,24 +2,22 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
-use function Laravel\Prompts\password;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-         \App\Models\User::factory(10)->create();
-
-         \App\Models\User::factory()->create([
-             'name' => 'SITI NURHALIZA',
-             'email' => 'sn301620@gmail.com',
-             'password' => 'admin12345',
+        $this->call([
+            TypeUserSeeder::class,
+            ConsultationSeeder::class,
+            ConfigPaymentSeeder::class,
+            SpecialistSeeder::class,
         ]);
     }
 }
